@@ -6,7 +6,8 @@
 
 ## let's confirm the second element is, in fact, the default library
 .Library
-install.packages("fs")
+#options(repos = c(CRAN = "https://cran.rstudio.com/"))
+#install.packages("fs")
 library(fs)
 path_real(.Library)
 
