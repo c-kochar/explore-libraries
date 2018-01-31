@@ -1,0 +1,371 @@
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[sc]{mathpazo}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{
+ pdfstartview={XYZ null null 1}}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+\makeatother
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+
+
+
+
+
+
+The results below are generated from an R script.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#' ---}
+\hlcom{#' output: github_document}
+\hlcom{#' ---}
+
+\hlcom{#created .md file}
+\hlcom{## how jenny might do this in a first exploration}
+\hlcom{## purposely leaving a few things to change later!}
+
+
+
+\hlcom{#' Which libraries does R search for packages?}
+\hlkwd{.libPaths}\hlstd{()}
+\end{alltt}
+\begin{verbatim}
+## [1] "C:/Users/subha/Documents/R/win-library/3.4"
+## [2] "C:/Program Files/R/R-3.4.3/library"
+\end{verbatim}
+\begin{alltt}
+\hlcom{## let's confirm the second element is, in fact, the default library}
+\hlstd{.Library}
+\end{alltt}
+\begin{verbatim}
+## [1] "C:/PROGRA~1/R/R-34~1.3/library"
+\end{verbatim}
+\begin{alltt}
+\hlcom{#options(repos = c(CRAN = "https://cran.rstudio.com/"))}
+\hlcom{#install.packages("fs")}
+\hlcom{#install.packages("devtools")}
+\hlkwd{library}\hlstd{(fs)}
+\hlkwd{path_real}\hlstd{(.Library)}
+\end{alltt}
+\begin{verbatim}
+## C:/Program Files/R/R-3.4.3/library
+\end{verbatim}
+\begin{alltt}
+\hlcom{#' Installed packages}
+\hlkwd{library}\hlstd{(tidyverse)}
+\end{alltt}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# -- Attaching packages -------------------------------------------------------------------------------------- tidyverse 1.2.1 --}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# v ggplot2 2.2.1\ \ \ \  v purrr\ \  0.2.4\\\#\# v tibble\ \ 1.4.2\ \ \ \  v dplyr\ \  0.7.4\\\#\# v tidyr\ \  0.7.2\ \ \ \  v stringr 1.2.0\\\#\# v readr\ \  1.1.1\ \ \ \  v forcats 0.2.0}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# -- Conflicts ----------------------------------------------------------------------------------------- tidyverse\_conflicts() --\\\#\# x dplyr::filter() masks stats::filter()\\\#\# x dplyr::lag()\ \ \ \ masks stats::lag()}}\begin{alltt}
+\hlstd{ipt} \hlkwb{<-} \hlkwd{installed.packages}\hlstd{()} \hlopt{%>%}
+  \hlkwd{as_tibble}\hlstd{()}
+
+\hlcom{## how many packages?}
+\hlkwd{nrow}\hlstd{(ipt)}
+\end{alltt}
+\begin{verbatim}
+## [1] 164
+\end{verbatim}
+\begin{alltt}
+\hlcom{#' Exploring the packages}
+
+\hlcom{## count some things! inspiration}
+\hlcom{##   * tabulate by LibPath, Priority, or both}
+\hlstd{ipt} \hlopt{%>%}
+  \hlkwd{count}\hlstd{(LibPath, Priority)}
+\end{alltt}
+\begin{verbatim}
+## # A tibble: 4 x 3
+##   LibPath                                    Priority        n
+##   <chr>                                      <chr>       <int>
+## 1 C:/Program Files/R/R-3.4.3/library         base           14
+## 2 C:/Program Files/R/R-3.4.3/library         recommended    15
+## 3 C:/Program Files/R/R-3.4.3/library         <NA>            1
+## 4 C:/Users/subha/Documents/R/win-library/3.4 <NA>          134
+\end{verbatim}
+\begin{alltt}
+\hlcom{##   * what proportion need compilation?}
+\hlstd{ipt} \hlopt{%>%}
+  \hlkwd{count}\hlstd{(NeedsCompilation)} \hlopt{%>%}
+  \hlkwd{mutate}\hlstd{(}\hlkwc{prop} \hlstd{= n} \hlopt{/} \hlkwd{sum}\hlstd{(n))}
+\end{alltt}
+\begin{verbatim}
+## # A tibble: 3 x 3
+##   NeedsCompilation     n   prop
+##   <chr>            <int>  <dbl>
+## 1 no                  71 0.433 
+## 2 yes                 87 0.530 
+## 3 <NA>                 6 0.0366
+\end{verbatim}
+\begin{alltt}
+\hlcom{##   * how break down re: version of R they were built on}
+\hlstd{ipt} \hlopt{%>%}
+  \hlkwd{count}\hlstd{(Built)} \hlopt{%>%}
+  \hlkwd{mutate}\hlstd{(}\hlkwc{prop} \hlstd{= n} \hlopt{/} \hlkwd{sum}\hlstd{(n))}
+\end{alltt}
+\begin{verbatim}
+## # A tibble: 3 x 3
+##   Built     n    prop
+##   <chr> <int>   <dbl>
+## 1 3.4.1    16 0.0976 
+## 2 3.4.2     1 0.00610
+## 3 3.4.3   147 0.896
+\end{verbatim}
+\begin{alltt}
+\hlcom{#' Reflections}
+
+\hlcom{## reflect on ^^ and make a few notes to yourself; inspiration}
+\hlcom{##   * does the number of base + recommended packages make sense to you?}
+\hlcom{##   * how does the result of .libPaths() relate to the result of .Library?}
+
+
+\hlcom{#' Going further}
+
+\hlcom{## if you have time to do more ...}
+
+\hlcom{## is every package in .Library either base or recommended?}
+\hlstd{all_default_pkgs} \hlkwb{<-} \hlkwd{list.files}\hlstd{(.Library)}
+\hlstd{all_br_pkgs} \hlkwb{<-} \hlstd{ipt} \hlopt{%>%}
+  \hlkwd{filter}\hlstd{(Priority} \hlopt{%in%} \hlkwd{c}\hlstd{(}\hlstr{"base"}\hlstd{,} \hlstr{"recommended"}\hlstd{))} \hlopt{%>%}
+  \hlkwd{pull}\hlstd{(Package)}
+\hlkwd{setdiff}\hlstd{(all_default_pkgs, all_br_pkgs)}
+\end{alltt}
+\begin{verbatim}
+## [1] "translations"
+\end{verbatim}
+\begin{alltt}
+\hlcom{## study package naming style (all lower case, contains '.', etc}
+
+\hlcom{## use `fields` argument to installed.packages() to get more info and use it!}
+\hlstd{ipt2} \hlkwb{<-} \hlkwd{installed.packages}\hlstd{(}\hlkwc{fields} \hlstd{=} \hlstr{"URL"}\hlstd{)} \hlopt{%>%}
+  \hlkwd{as_tibble}\hlstd{()}
+\hlstd{ipt2} \hlopt{%>%}
+  \hlkwd{mutate}\hlstd{(}\hlkwc{github} \hlstd{=} \hlkwd{grepl}\hlstd{(}\hlstr{"github"}\hlstd{, URL))} \hlopt{%>%}
+  \hlkwd{count}\hlstd{(github)} \hlopt{%>%}
+  \hlkwd{mutate}\hlstd{(}\hlkwc{prop} \hlstd{= n} \hlopt{/} \hlkwd{sum}\hlstd{(n))}
+\end{alltt}
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   github     n  prop
+##   <lgl>  <int> <dbl>
+## 1 F         79 0.482
+## 2 T         85 0.518
+\end{verbatim}
+\begin{alltt}
+\hlstd{devtools}\hlopt{::}\hlkwd{session_info}\hlstd{()}
+\end{alltt}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Session info ----------------------------------------------------------------------------}}\begin{verbatim}
+##  setting  value                       
+##  version  R version 3.4.3 (2017-11-30)
+##  system   x86_64, mingw32             
+##  ui       RTerm                       
+##  language (EN)                        
+##  collate  English_United States.1252  
+##  tz       America/Los_Angeles         
+##  date     2018-01-31
+\end{verbatim}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Packages --------------------------------------------------------------------------------}}\begin{verbatim}
+##  package    * version date       source        
+##  assertthat   0.2.0   2017-04-11 CRAN (R 3.4.3)
+##  base       * 3.4.3   2017-12-06 local         
+##  bindr        0.1     2016-11-13 CRAN (R 3.4.3)
+##  bindrcpp   * 0.2     2017-06-17 CRAN (R 3.4.3)
+##  broom        0.4.3   2017-11-20 CRAN (R 3.4.3)
+##  cellranger   1.1.0   2016-07-27 CRAN (R 3.4.3)
+##  cli          1.0.0   2017-11-05 CRAN (R 3.4.3)
+##  colorspace   1.3-2   2016-12-14 CRAN (R 3.4.3)
+##  compiler     3.4.3   2017-12-06 local         
+##  crayon       1.3.4   2017-09-16 CRAN (R 3.4.3)
+##  datasets   * 3.4.3   2017-12-06 local         
+##  devtools     1.13.4  2017-11-09 CRAN (R 3.4.3)
+##  digest       0.6.14  2018-01-14 CRAN (R 3.4.3)
+##  dplyr      * 0.7.4   2017-09-28 CRAN (R 3.4.3)
+##  evaluate     0.10.1  2017-06-24 CRAN (R 3.4.3)
+##  forcats    * 0.2.0   2017-01-23 CRAN (R 3.4.3)
+##  foreign      0.8-69  2017-06-22 CRAN (R 3.4.3)
+##  fs         * 1.1.0   2018-01-26 CRAN (R 3.4.3)
+##  ggplot2    * 2.2.1   2016-12-30 CRAN (R 3.4.3)
+##  glue         1.2.0   2017-10-29 CRAN (R 3.4.3)
+##  graphics   * 3.4.3   2017-12-06 local         
+##  grDevices  * 3.4.3   2017-12-06 local         
+##  grid         3.4.3   2017-12-06 local         
+##  gtable       0.2.0   2016-02-26 CRAN (R 3.4.3)
+##  haven        1.1.1   2018-01-18 CRAN (R 3.4.3)
+##  highr        0.6     2016-05-09 CRAN (R 3.4.3)
+##  hms          0.4.1   2018-01-24 CRAN (R 3.4.3)
+##  httr         1.3.1   2017-08-20 CRAN (R 3.4.3)
+##  jsonlite     1.5     2017-06-01 CRAN (R 3.4.3)
+##  knitr      * 1.18    2017-12-27 CRAN (R 3.4.3)
+##  lattice      0.20-35 2017-03-25 CRAN (R 3.4.3)
+##  lazyeval     0.2.1   2017-10-29 CRAN (R 3.4.3)
+##  lubridate    1.7.1   2017-11-03 CRAN (R 3.4.3)
+##  magrittr     1.5     2014-11-22 CRAN (R 3.4.3)
+##  memoise      1.1.0   2017-04-21 CRAN (R 3.4.3)
+##  methods      3.4.3   2017-12-06 local         
+##  mnormt       1.5-5   2016-10-15 CRAN (R 3.4.1)
+##  modelr       0.1.1   2017-07-24 CRAN (R 3.4.3)
+##  munsell      0.4.3   2016-02-13 CRAN (R 3.4.3)
+##  nlme         3.1-131 2017-02-06 CRAN (R 3.4.3)
+##  parallel     3.4.3   2017-12-06 local         
+##  pillar       1.1.0   2018-01-14 CRAN (R 3.4.3)
+##  pkgconfig    2.0.1   2017-03-21 CRAN (R 3.4.3)
+##  plyr         1.8.4   2016-06-08 CRAN (R 3.4.3)
+##  psych        1.7.8   2017-09-09 CRAN (R 3.4.3)
+##  purrr      * 0.2.4   2017-10-18 CRAN (R 3.4.3)
+##  R6           2.2.2   2017-06-17 CRAN (R 3.4.3)
+##  Rcpp         0.12.15 2018-01-20 CRAN (R 3.4.3)
+##  readr      * 1.1.1   2017-05-16 CRAN (R 3.4.3)
+##  readxl       1.0.0   2017-04-18 CRAN (R 3.4.3)
+##  reshape2     1.4.3   2017-12-11 CRAN (R 3.4.3)
+##  rlang        0.1.6   2017-12-21 CRAN (R 3.4.3)
+##  rstudioapi   0.7     2017-09-07 CRAN (R 3.4.3)
+##  rvest        0.3.2   2016-06-17 CRAN (R 3.4.3)
+##  scales       0.5.0   2017-08-24 CRAN (R 3.4.3)
+##  stats      * 3.4.3   2017-12-06 local         
+##  stringi      1.1.6   2017-11-17 CRAN (R 3.4.2)
+##  stringr    * 1.2.0   2017-02-18 CRAN (R 3.4.3)
+##  tibble     * 1.4.2   2018-01-22 CRAN (R 3.4.3)
+##  tidyr      * 0.7.2   2017-10-16 CRAN (R 3.4.3)
+##  tidyverse  * 1.2.1   2017-11-14 CRAN (R 3.4.3)
+##  tools        3.4.3   2017-12-06 local         
+##  utf8         1.1.3   2018-01-03 CRAN (R 3.4.3)
+##  utils      * 3.4.3   2017-12-06 local         
+##  withr        2.1.1   2017-12-19 CRAN (R 3.4.3)
+##  xml2         1.2.0   2018-01-24 CRAN (R 3.4.3)
+\end{verbatim}
+\begin{alltt}
+\hlcom{#sessionInfo() }
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+The R session information (including the OS info, R version and all
+packages used):
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{sessionInfo}\hlstd{()}
+\end{alltt}
+\begin{verbatim}
+## R version 3.4.3 (2017-11-30)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 16299)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252 LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  base     
+## 
+## other attached packages:
+##  [1] bindrcpp_0.2    forcats_0.2.0   stringr_1.2.0   dplyr_0.7.4     purrr_0.2.4    
+##  [6] readr_1.1.1     tidyr_0.7.2     tibble_1.4.2    ggplot2_2.2.1   tidyverse_1.2.1
+## [11] fs_1.1.0        knitr_1.18     
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_0.12.15     cellranger_1.1.0 pillar_1.1.0     compiler_3.4.3   highr_0.6       
+##  [6] plyr_1.8.4       bindr_0.1        methods_3.4.3    tools_3.4.3      digest_0.6.14   
+## [11] memoise_1.1.0    lubridate_1.7.1  jsonlite_1.5     evaluate_0.10.1  nlme_3.1-131    
+## [16] gtable_0.2.0     lattice_0.20-35  pkgconfig_2.0.1  rlang_0.1.6      psych_1.7.8     
+## [21] cli_1.0.0        rstudioapi_0.7   parallel_3.4.3   haven_1.1.1      withr_2.1.1     
+## [26] xml2_1.2.0       httr_1.3.1       devtools_1.13.4  hms_0.4.1        grid_3.4.3      
+## [31] glue_1.2.0       R6_2.2.2         readxl_1.0.0     foreign_0.8-69   modelr_0.1.1    
+## [36] reshape2_1.4.3   magrittr_1.5     scales_0.5.0     rvest_0.3.2      assertthat_0.2.0
+## [41] mnormt_1.5-5     colorspace_1.3-2 utf8_1.1.3       stringi_1.1.6    lazyeval_0.2.1  
+## [46] munsell_0.4.3    broom_0.4.3      crayon_1.3.4
+\end{verbatim}
+\begin{alltt}
+\hlkwd{Sys.time}\hlstd{()}
+\end{alltt}
+\begin{verbatim}
+## [1] "2018-01-31 14:39:59 PST"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+\end{document}

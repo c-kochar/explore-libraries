@@ -15,6 +15,7 @@
 .Library
 #options(repos = c(CRAN = "https://cran.rstudio.com/"))
 #install.packages("fs")
+#install.packages("devtools")
 library(fs)
 path_real(.Library)
 
@@ -70,3 +71,6 @@ ipt2 %>%
   mutate(github = grepl("github", URL)) %>%
   count(github) %>%
   mutate(prop = n / sum(n))
+
+devtools::session_info()
+#sessionInfo() 
