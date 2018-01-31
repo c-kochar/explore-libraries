@@ -1,9 +1,10 @@
 01\_explore-libraries\_jenny.R
 ================
 subha
-Wed Jan 31 14:08:27 2018
+Wed Jan 31 14:12:48 2018
 
 ``` r
+#created .md file
 ## how jenny might do this in a first exploration
 ## purposely leaving a few things to change later!
 ```
@@ -58,7 +59,7 @@ ipt <- installed.packages() %>%
 nrow(ipt)
 ```
 
-    ## [1] 158
+    ## [1] 163
 
 Exploring the packages
 
@@ -75,7 +76,7 @@ ipt %>%
     ## 1 C:/Program Files/R/R-3.4.3/library         base           14
     ## 2 C:/Program Files/R/R-3.4.3/library         recommended    15
     ## 3 C:/Program Files/R/R-3.4.3/library         <NA>            1
-    ## 4 C:/Users/subha/Documents/R/win-library/3.4 <NA>          128
+    ## 4 C:/Users/subha/Documents/R/win-library/3.4 <NA>          133
 
 ``` r
 ##   * what proportion need compilation?
@@ -87,9 +88,9 @@ ipt %>%
     ## # A tibble: 3 x 3
     ##   NeedsCompilation     n   prop
     ##   <chr>            <int>  <dbl>
-    ## 1 no                  69 0.437 
-    ## 2 yes                 83 0.525 
-    ## 3 <NA>                 6 0.0380
+    ## 1 no                  71 0.436 
+    ## 2 yes                 86 0.528 
+    ## 3 <NA>                 6 0.0368
 
 ``` r
 ##   * how break down re: version of R they were built on
@@ -101,9 +102,9 @@ ipt %>%
     ## # A tibble: 3 x 3
     ##   Built     n    prop
     ##   <chr> <int>   <dbl>
-    ## 1 3.4.1    14 0.0886 
-    ## 2 3.4.2     1 0.00633
-    ## 3 3.4.3   143 0.905
+    ## 1 3.4.1    16 0.0982 
+    ## 2 3.4.2     1 0.00613
+    ## 3 3.4.3   146 0.896
 
 Reflections
 
@@ -143,5 +144,5 @@ ipt2 %>%
     ## # A tibble: 2 x 3
     ##   github     n  prop
     ##   <lgl>  <int> <dbl>
-    ## 1 F         75 0.475
-    ## 2 T         83 0.525
+    ## 1 F         79 0.485
+    ## 2 T         84 0.515
