@@ -74,3 +74,5 @@ ipt2 %>%
 
 devtools::session_info()
 #sessionInfo() 
+
+#I had coffee
